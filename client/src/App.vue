@@ -1,3 +1,11 @@
+<script setup>
+import Top from './components/Top.vue';
+import SignUpView from './views/SignUpView.vue';
+import Footer from './components/Footer.vue';
+</script>
+
 <template>
-  <h1 class="font-inter-sans">Hello</h1>
+  <Top />
+  <SignUpView />
+  <Footer />
 </template>
