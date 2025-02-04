@@ -1,12 +1,9 @@
 <script setup>
-import Navbar from '@/components/Navbar.vue';
 import bg from '@/images/auth-login/Side Image.png';
 import googleColorIcon from '@/images/auth-login/Icon-Google.png';
 </script>
 
 <template>
-  <Navbar />
-
   <div class="pt-14 pb-36">
     <div class=" max-w-screen-xl mx-auto flex items-center justify-between">
       <div>

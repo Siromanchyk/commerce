@@ -1,5 +1,4 @@
 <script setup>
-  const languages = ['Ukrainian'];
 </script>
 
 <template>
@@ -19,7 +18,7 @@
           </svg>
         </button>
         <div class="absolute hidden right-0 mt-2 bg-black text-white group-hover:block">
-          <a href="#" class="block px-2 py-2 w-full" v-for="language in languages">{{ language }}</a>
+          <a href="#" class="block px-2 py-2 w-full">Ukrainian</a>
         </div>
       </div>
     </div>
