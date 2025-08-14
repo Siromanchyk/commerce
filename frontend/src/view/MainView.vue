@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import Top from '@/components/Top.vue';
-import Navigation from '@/components/Navigation.vue';
 import NavSlider from '@/components/NavSlider.vue';
 import Footer from '@/components/Footer.vue';
 import ProductSection from '@/components/ProductSection.vue';
@@ -8,8 +6,7 @@ import ProductSection from '@/components/ProductSection.vue';
 </script>
 
 <template>
-  <Top />
-  <Navigation />
+
   <NavSlider />
 
   <div class="lg:pt-35 pt-10">
@@ -381,5 +378,4 @@ import ProductSection from '@/components/ProductSection.vue';
     </div>
   </div>
 
-  <Footer />
 </template>
