@@ -189,36 +189,3 @@ export const products = [
       }
     }
 ]
-
-export const categories = [
-  {
-    name: 'Phones',
-    img: './assets/images/category/Category-CellPhone.png',
-    imgAlt: 'phones',
-  },
-  {
-    name: 'Computers',
-    img: './assets/images/category/Category-Computer.png',
-    imgAlt: 'computers',
-  },
-  {
-    name: 'SmartWatch',
-    img: './assets/images/category/Category-SmartWatch.png',
-    imgAlt: 'smartwatch',
-  },
-  {
-    name: 'Camera',
-    img: './assets/images/category/Category-Camera.png',
-    imgAlt: 'camera',
-  },
-  {
-    name: 'HeadPhones',
-    img: './assets/images/category/Category-Headphone.png',
-    imgAlt: 'headphones',
-  },
-  {
-    name: 'Gaming',
-    img: './assets/images/category/Category-Gamepad.png',
-    imgAlt: 'gaming',
-  }
-]

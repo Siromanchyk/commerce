@@ -7,7 +7,7 @@ const payment = ref('');
 </script>
 
 <template>
-  <div class="w-[425px]">
+  <div class="w-auto md:w-[425px]">
     <div v-for="(item, index) in products.slice(0, 2)">
       <div v-if="index > 0" class="mt-8">
         <div class="flex items-center">
@@ -87,14 +87,10 @@ const payment = ref('');
         </div>
       </div>
     </div>
-    <div class="mt-8 flex justify-between">
-      <InputText placeholder="Coupon Code" class="font-poppins leading-[24px]" />
-      <Button label="Apply Coupon" :pt="{ root: '!px-5 !bg-red-500 !border-red-500'}" />
+    <div class="mt-8 flex justify-between gap-4">
+      <InputText placeholder="Coupon Code" class="" :pt="{ root: '!grow !leading-6'}" />
+      <Button label="Apply Coupon" :pt="{ root: '!font-poppins !px-5 !bg-red-500 !border-red-500'}" />
     </div>
-    <Button label="Place Order" :pt="{ root: '!px-12 !py-4 !bg-red-500 !border-red-500 !mt-12' }" />
+    <Button label="Place Order" :pt="{ root: '!font-poppins !bg-red-500 !border-red-500 !mt-12 !px-12 !py-4' }" />
   </div>
 </template>
-
-<style lang="css" scoped>
-
-</style>

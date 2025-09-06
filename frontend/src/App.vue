@@ -2,7 +2,7 @@
 import Top from './components/Top.vue';
 import Navigation from './components/Navigation.vue';
 import Footer from './components/Footer.vue';
-import GamepadView from './view/GamepadView.vue';
+import { RouterView } from 'vue-router';
 </script>
 
 <template>
@@ -10,7 +10,9 @@ import GamepadView from './view/GamepadView.vue';
   <div class="min-h-screen flex flex-col">
     <Top />
     <Navigation />
-    <GamepadView class="grow-1" />
+    <main class="grow-1">
+      <RouterView />
+    </main>
     <Footer />
   </div>
 </template>

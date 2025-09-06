@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ICategory } from '@/IProduct';
+import type { ICategory } from '@/interfaces/IProduct';
 
 const props = defineProps<{
   category: ICategory, 

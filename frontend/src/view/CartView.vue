@@ -1,78 +1,82 @@
 <script setup lang="ts">
-import { DataTable, Column, Button, InputText } from 'primevue';
+import { DataTable, Column, Button, InputText, Breadcrumb } from 'primevue';
 import { products } from '@/products';
+import { ref } from 'vue';
 
+const items = ref([
+  { label: 'Home', router: '/' },
+  { label: 'Cart', router: '/cart' }
+]) 
 </script>
 
 <template>
   <div class="pb-35">
-    <div class="max-w-sm lg:max-w-7xl mx-auto">
-      <div class="mt-20">
-        <div class="flex items-center">
-          <div class="inline-block">
-            <a href="#" class="font-poppins text-gray-600 leading-[21px]">Home</a>
-          </div>
-          <div class="inline-block mx-1.5">
-            <p class="text-gray-600">/</p>
-          </div>
-          <div class="inline-block">
-            <a href="#" class="font-poppins leading-[21px]">Cart</a>
-          </div>
-        </div>
+    <div class="md:max-w-3xl lg:max-w-7xl px-3.5 md:px-0 mx-auto">
+      <div class="mt-10 md:mt-20">
+        <Breadcrumb :model="items">
+          <template #item="{ item }">
+            <RouterLink :to="item.router" v-slot="{ href, navigate }">
+              <a :href="href" @click="navigate">
+                <span class="font-poppins text-sm md:text-base text-gray-600 leading-[21px]">{{ item.label }}</span>
+              </a>
+            </RouterLink>
+          </template>
+          <template #separator>/</template>
+        </Breadcrumb>
       </div>
 
-      <div class="mt-20">
+      <div class="mt-10 md:mt-20">
         <DataTable :value="products">
           <Column field="product">
             <template #header>
-              <div class="pl-6 py-4 font-semibold text-left">
+              <div class="md:pl-6 md:py-4 font-semibold text-left text-xs md:text-base">
                 Product
               </div>
             </template>
             <template #body="{ data }">
-              <div class="inline-flex justify-center items-center pl-4 pt-0.5">
+              <div class="inline-flex justify-center items-center md:pl-4 md:pt-0.5">
                 <div class="w-[75px] h-[75px] flex justify-center">
                   <img :src="data.imageUrl" class="h-full" />
                 </div>
-                <div class="ml-6">
-                  <p class="font-poppins leading-[24px]">LCD Monitor</p>
+                <div class="ml-3 md:ml-6">
+                  <p class="font-poppins text-xs md:text-base leading-[24px]">{{ data.name }}</p>
                 </div>
               </div>
             </template>
           </Column>
           <Column field="price">
             <template #header>
-              <div class="flex justify-end grow-1 pr-4 py-4 font-semibold text-left">
+              <div class="flex justify-end md:grow-1 md:pr-4 md:py-4 font-semibold text-left text-xs sm:text-base">
                 Price
               </div>
             </template>
             <template #body="{ data }">
-              <div class="flex justify-end grow-1 pr-4">
-                <p class="font-poppins leading-[24px]">${{ data.price.current }}</p>
+              <div class="flex justify-end md:grow-1 md:pr-4">
+                <p class="font-poppins text-xs md:text-base leading-[24px]">${{ data.price.current }}</p>
               </div>
             </template>
           </Column>
           <Column field="quantity">
             <template #header>
-              <div class="flex grow-1 justify-end pr-4 py-4 font-semibold text-left">
+              <div class="flex grow-1 justify-end md:pr-4 md:py-4 font-semibold text-left text-xs md:text-base">
                 Quantity
               </div>
             </template>
             <template #body="{ data }">
-              <div class="flex justify-end grow-1 pr-4">
+              <div class="flex justify-end md:grow-1 md:pr-4">
                 <input type="number" value="1" class="border-2 border-gray-400 rounded-sm py-1 px-1 w-12" />
               </div>
             </template>
           </Column>
           <Column field="subtotal">
             <template #header>
-              <div class="flex justify-end grow-1 pr-4 py-4 font-semibold text-left">
+              <div class="flex justify-end md:grow-1 md:pr-4 md:py-4 font-semibold text-left text-xs md:text-base">
                 Subtotal
               </div>
             </template>
             <template #body="{ data }">
-              <div class="flex justify-end grow-1 pr-4">
-                <p>${{ data.price.current }}</p>
+              <div class="flex justify-end md:grow-1 pr-4">
+                <p class="font-poppins text-xs md:text-base leading-6">${{ data.price.current }}</p>
               </div>
             </template>
           </Column>
@@ -80,23 +84,23 @@ import { products } from '@/products';
       </div>
 
       <div class="mt-6">
-        <div class="flex justify-between">
+        <div class="inline-flex md:flex justify-between flex-col md:flex-row">
           <div class="flex justify-center items-center border-2 border-gray-400 rounded-sm py-4 px-12">
-            <a href="#" class="font-poppins font-medium leading-[24px]">Return To Shop</a>
+            <RouterLink to="/" class="font-poppins font-medium leading-[24px]">Return To Shop</RouterLink>
           </div>
-          <Button unstyled label="Update Cart" class="font-poppins font-medium leading-[24px] rounded-sm border-2 border-gray-400 py-4 px-12" />
+          <Button label="Update Cart" :pt="{ root: '!font-poppins !text-black !font-medium !leading-[24px] !border-2 !border-gray-400 !py-4 !px-12 !bg-white !mt-3 md:!mt-0' }" />
         </div>
       </div>
 
-      <div class="mt-20">
-        <div class="flex justify-between">
-          <div class="flex items-start">
+      <div class="mt-5 md:mt-20">
+        <div class="flex flex-col md:flex-row justify-between gap-5 lg:gap-0">
+          <div class="flex flex-col lg:flex-row items-start">
             <InputText placeholder="Coupon Code" :pt="{
-              root: '!font-poppins !leading-[24px] !border-2 !border-black !rounded-sm !py-3 !pl-6',
+              root: '!font-poppins !leading-[24px] !border-2 !border-black',
             }" />
-            <Button unstyled label="Apply Coupon" class="font-poppins font-medium leading-[24px] text-white bg-red-500 rounded-sm py-3.5 px-12 ml-4" />
+            <Button label="Apply Coupon" :pt="{ root: '!font-poppins !font-medium !leading-[24px] !text-white !bg-red-500 !border-2 !border-red-500 !py-3.5 !px-12 !ml-0 !mt-4 lg:!mt-0 lg:!ml-4' }" />
           </div>
-          <div class="w-[470px] border-2 border-black rounded-sm py-8 px-6">
+          <div class="grow-1 md:grow-0 border-2 border-black rounded-sm py-8 px-6">
             <h3 class="font-poppins text-xl font-medium leading-[28px]">Cart Total</h3>
             <div class="mt-6 pb-4 border-b-2 border-b-gray-400">
               <div class="flex justify-between">
@@ -129,7 +133,9 @@ import { products } from '@/products';
               </div>
             </div>
             <div class="mt-4 flex justify-center">
-              <Button unstyled label="Procees to checkout" class="font-poppins font-medium leading-[24px] text-white bg-red-500 py-4 px-12 rounded-sm" />
+              <Button label="" :pt="{ root: '!bg-red-500 !border-2 !border-red-500 !py-4 !px-12' }">
+                <RouterLink to="/checkout" class="font-poppins font-medium leading-6">Procees to checkout</RouterLink>
+              </Button>
             </div>
           </div>
         </div>

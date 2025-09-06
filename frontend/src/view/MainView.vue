@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import NavSlider from '@/components/NavSlider.vue';
-import Footer from '@/components/Footer.vue';
 import ProductSection from '@/components/ProductSection.vue';
 
 </script>
@@ -14,7 +13,7 @@ import ProductSection from '@/components/ProductSection.vue';
   </div>
 
   <div class="pt-20">
-    <div class="max-w-sm md:max-w-3xl lg:max-w-7xl mx-auto">
+    <div class="md:max-w-3xl lg:max-w-7xl px-3.5 md:px-0 mx-auto">
       <div class="flex items-center">
         <div class="w-5 h-10 rounded-xs bg-red-500"></div>
         <div class="ml-4">
@@ -36,7 +35,6 @@ import ProductSection from '@/components/ProductSection.vue';
       </div>
 
       <div class="mt-10 pb-17.5 border-b-2 border-b-gray-300">
-
         <div class="flex overflow-hidden">
           <a href="#" class="border-2 border-gray-300 rounded-sm flex flex-col justify-center items-center w-[200px] h-[145px] mr-4 shrink-0">
             <svg width="56.000000" height="56.000000" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -73,7 +71,7 @@ import ProductSection from '@/components/ProductSection.vue';
               </g>
             </svg>
             <div class="mt-4.5">
-              <p class="font-poppins ">Computers</p>
+              <p class="font-poppins">Computers</p>
             </div>
           </a>
           <a href="#" class="border-2 border-gray-300 rounded-sm flex flex-col justify-center items-center w-[200px] h-[145px] mr-4 shrink-0">
@@ -156,7 +154,7 @@ import ProductSection from '@/components/ProductSection.vue';
 
   <div class="pt-17.5 lg:pt-20">
     <ProductSection title="This month" sub-title="Best Selling Products" :times="false" layout="row" />
-    <div class="max-w-sm md:max-w-3xl lg:max-w-7xl mx-auto">
+    <div class="md:max-w-3xl lg:max-w-7xl px-3.5 md:px-0 mx-auto">
         <div class="lg:mt-35 mt-15">
           <div class="bg-black flex justify-between py-17.5 px-14">
             <div>
@@ -217,7 +215,7 @@ import ProductSection from '@/components/ProductSection.vue';
   </div>
 
   <div class="lg:pt-20 pt-17.5">
-    <div class="max-w-sm md:max-w-3xl lg:max-w-7xl mx-auto">
+    <div class="md:max-w-3xl lg:max-w-7xl px-3.5 md:px-0 mx-auto">
       <div class="flex items-center">
         <div class="w-5 h-10 rounded-xs bg-red-500"></div>
         <div class="ml-4">

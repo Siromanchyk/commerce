@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import type { Product } from '@/IProduct';
+import type { Product } from '@/interfaces/IProduct';
 
 defineProps<{
   product: Product;
 }>();
 </script>
 
-<template #item="product">
+<template>
   <div class="w-[305px] h-[350px] mr-5 shrink-0">
     <a href="#" class="flex justify-center items-center relative h-[250px] bg-gray-100 rounded-sm group">
       <span class="flex justify-center items-center absolute top-3 left-3 bg-red-500 font-poppins text-xs text-white rounded-sm py-1 px-3">-{{ product.price.discountPercentage }}%</span>

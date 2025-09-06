@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { onMounted } from 'vue';
 import { MegaMenu } from 'primevue';
+import { categoriesItems } from '@/items';
 
 onMounted(() => {
   const sliders = document.getElementsByClassName('slider');
@@ -30,80 +31,18 @@ onMounted(() => {
 
 });
 
-const items = ref([
-    {
-      label: 'Woman’s Fashion',
-      items: [
-        [
-          {
-            label: 'Living Room',
-            items: [{ label: 'Accessories' }, { label: 'Armchair' }, { label: 'Coffee Table' }, { label: 'Couch' }, { label: 'TV Stand' }]
-          },
-        ],
-        [
-          {
-            label: 'Header2',
-            items: [{ label: 'Paragraph2'}]
-          }
-        ]
-      ],
-    },
-    {
-        label: 'Men’s Fashion',
-        items: [],
-    },
-    {
-        label: 'Electronics',
-        items: [],
-    },
-    {
-      label: 'Home & Lifestyle',
-      items: [],
-    },
-    {
-      label: 'Medicine',
-      items: [],
-    },
-    {
-      label: 'Sports & Outdoor',
-      items: [],
-    },
-    {
-      label: 'Baby’s & Toys',
-      items: [],
-    },
-    {
-      label: 'Groceries & Pets',
-      items: [],
-    },
-    {
-      label: 'Health & Beauty',
-      items: [],
-    }
-]);
 </script>
 
 <template>
   <div>
-    <div class="max-w-sm md:max-w-3xl lg:max-w-7xl mx-auto">
+    <div class="md:max-w-3xl lg:max-w-7xl px-3.5 md:px-0 mx-auto">
       <div class="lg:flex block h-[350px]">
         <div class="hidden lg:block w-1/4 border-r-2 border-r-gray-300 pt-10">
-          <MegaMenu class="" :model="items" orientation="vertical" :pt="{
-            root: { class: 'w-full !h-full !flex' },
-            rootList: { class: '!h-full !justify-between' },
-            overlay: { class: '!bg-white !border-2 !border-gray-300 !rounded-sm !ml-3 !pt-4 !pl-4' },
-            submenuLabel: { class: '!font-semibold !mb-3.5' },
-            submenu: { class: '!text-sm' },
-            itemContent: { class: '!font-poppins !leading-[24px]' },
-            itemLink: ({ context }) => ({
-              class: [
-                '!pr-2.5',
-                {
-                  '!pb-4': context.index !== items.length - 1,
-                }
-              ]
-            }),
-            submenuIcon: { class: '!w-4' },
+          <MegaMenu class="" :model="categoriesItems" orientation="vertical" :pt="{
+            root: '!w-full !border-none',
+            item: '!font-poppins',
+            submenuIcon: '!w-4 !h-4',
+            overlay: '!ml-0.5'
           }" />
         </div>
         <div class="block lg:w-3/4 h-[300px] lg:h-auto">

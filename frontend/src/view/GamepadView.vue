@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Galleria, Button, InputNumber, RadioButton } from 'primevue';
 import { ref } from 'vue';
+import ProductSection from '@/components/ProductSection.vue';
 
 const items = ref([
   {
@@ -23,12 +24,12 @@ const items = ref([
 
 <template>
   <div>
-    <div class="max-w-7xl mx-auto">
-      <div class="flex justify-between mt-20 pb-6">
+    <div class="md:max-w-3xl lg:max-w-7xl mx-auto px-3.5 md:px-0">
+      <div class="flex flex-col lg:flex-row justify-between mt-20 pb-6">
         <div class="flex-[66%] grow-0 shrink">
           <Galleria :value="items" :numVisible="5" :showThumbnailNavigators="false" thumbnailsPosition="left" :pt="{ itemsContainer: '!px-8 !w-full !justify-center', 
           content: '!h-full', 
-          thumbnailItem: 'w-[150px] !overflow-hidden',
+          thumbnailItem: 'lg:w-[150px] md:w-[125px] w-[75px] !overflow-hidden',
           root: '!h-full',
           thumbnailsViewport: '!h-auto',
           }">
@@ -40,7 +41,7 @@ const items = ref([
             </template>
           </Galleria>
         </div>
-        <div class="flex-[33%] ml-17.5">
+        <div class="flex-[33%] mt-7.5 lg:mt-0 lg:ml-17.5">
           <h3 class="font-inter text-2xl leading-6 tracking-wide">Havic HV G-92 Gamepad</h3>
           <div class="mt-4 flex ">
             <span v-for="n in 5" class="pi pi-star-fill text-yellow-500" :class="[n < 5 ? 'mr-2' : '', ]"></span>
@@ -134,6 +135,8 @@ const items = ref([
           </div>
         </div>
       </div>
+
+      <ProductSection title="Related Item" :times="false" layout="row" class="mt-12" />
     </div>
   </div>
 </template>

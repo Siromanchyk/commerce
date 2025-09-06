@@ -1,34 +1,61 @@
 <script setup lang="ts">
 import { employees } from '@/employees';
-import { Carousel, Card } from 'primevue';
+import { Carousel, Card, Breadcrumb } from 'primevue';
+import { ref } from 'vue';
 
+const items = ref([
+  { label: 'Home', route: '/' },
+  { label: 'About', route: '/about' },
+]);
+
+const responsiveOptions = ref([
+  {
+    breakpoint: '1400px',
+    numVisible: 2,
+    numScroll: 1
+  },
+  {
+    breakpoint: '1199px',
+    numVisible: 3,
+    numScroll: 1
+  },
+  {
+    breakpoint: '767px',
+    numVisible: 2,
+    numScroll: 1
+  },
+  {
+    breakpoint: '575px',
+    numVisible: 1,
+    numScroll: 1
+  }
+]);
 </script>
 
 <template>
   <div :class="$attrs.class">
-    <div class="max-w-7xl mx-auto">
-      <div class="mt-20">
-        <div class="flex items-center">
-          <div class="inline-block">
-            <a href="#" class="font-poppins text-gray-600 leading-[21px]">Home</a>
-          </div>
-          <div class="inline-block mx-1.5">
-            <p class="text-gray-600">/</p>
-          </div>
-          <div class="inline-block">
-            <a href="#" class="font-poppins leading-[21px]">About</a>
-          </div>
-        </div>
+    <div class="md:max-w-3xl lg:max-w-7xl mx-auto px-3.5 md:px-0">
+      <div class="mt-15 md:mt-20">
+        <Breadcrumb :model="items" :pt="{ root: '!p-0'}">
+          <template #item="{ item }">
+            <RouterLink :to="item.route" v-slot="{ navigate, href }">
+              <a :href="href" @click="navigate" class="font-poppins text-gray-600 leading-[21px]">
+                {{ item.label }}
+              </a>
+            </RouterLink>
+          </template>
+          <template #separator>/</template>
+        </Breadcrumb>
       </div>
     </div>
   </div>
 
-  <div class="mt-10.5">
-    <div class="pl-[calc((100%-theme(maxWidth.7xl))/2)]">
-      <div class="flex justify-between items-center">
+  <div class="mt-5 md:mt-10.5">
+    <div class="md:pl-[calc((100%-theme(maxWidth.7xl))/2)] px-3.5 md:px-0">
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center">
         <div>
           <h2 class="font-inter text-5xl leading-[64px] tracking-widest">Our Story</h2>
-          <div class="mt-10">
+          <div class="mt-5 md:mt-10">
             <p class="font-poppins leading-[26px] text-justify">
               Launced in 2015, Exclusive is South Asia's premier online shopping makterplace with an active presense in Bangladesh. Supported by wide range of tailored marketing, data and service solutions, Exclusive has 10,500 sallers and 300 brands and serves 3 millioons customers across the region. 
             </p>
@@ -39,16 +66,16 @@ import { Carousel, Card } from 'primevue';
             </div>
           </div>
         </div>
-        <div class="ml-18">
-          <img src="../assets/images/about/aboutStory.png" alt="about" class="w-auto h-auto max-w-none">
+        <div class="mt-5 md:ml-18">
+          <img src="../assets/images/about/aboutStory.png" alt="about" class="w-auto h-auto md:max-w-none">
         </div>
       </div>
     </div>
   </div>
 
-  <div class="mt-35">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid grid-cols-4 gap-7.5">
+  <div class="mt-15 md:mt-35">
+    <div class="md:max-w-3xl lg:max-w-7xl mx-auto px-3.5 md:px-0">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-7.5">
         <div class="border-2 border-gray-300 rounded-sm flex flex-col justify-center items-center py-7.5 group hover:bg-red-500 hover:border-white transition-all duration-300">
           <div class="w-[80px] h-[80px] bg-gray-400 rounded-full p-4 flex justify-center items-center">
             <div class="bg-black rounded-full p-3 flex justify-center items-center">
@@ -131,16 +158,14 @@ import { Carousel, Card } from 'primevue';
     </div>
   </div>
 
-  <div class="mt-35">
-    <div class="max-w-7xl mx-auto">
-      <Carousel :value="employees" :numVisible="3" :numScroll="1" :show-navigators="false" :pt="{
-        contentContainer: '!pr-0.5',
-        itemList: '!gap-5',
+  <div class="mt-15 md:mt-35">
+    <div class="md:max-w-3xl lg:max-w-7xl mx-auto px-3.5 md:px-0">
+      <Carousel :value="employees" :numVisible="3" :numScroll="1" :show-navigators="false" :responsive-options="responsiveOptions" :pt="{
         indicatorList: '!mt-10',
         indicatorButton: '!rounded-full !p-1.5 !w-0',
       }">
         <template #item="{ data }">
-          <Card class="h-full" :pt="{ root: '!overflow-hidden !shadow-none', body: '!p-0', title: 'mt-8' }">
+          <Card class="h-full" :pt="{ root: '!shadow-none !mx-2', body: '!p-0', title: 'mt-8' }"> <!--!overflow-hidden-->
             <template #header>
               <div class="bg-gray-100 h-[430px] flex items-end justify-center">
                 <img :src="data.img" alt="">

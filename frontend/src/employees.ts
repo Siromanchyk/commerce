@@ -1,4 +1,4 @@
-import type { IEmployeer } from "./IEmployeer"
+import type { IEmployeer } from "./interfaces/IEmployeer"
 
 export const employees: IEmployeer[] = [
   {

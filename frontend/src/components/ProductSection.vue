@@ -6,7 +6,7 @@ import ProductCard from './ProductCard.vue';
 
 defineProps<{
   title: String,
-  subTitle: String,
+  subTitle?: String,
   times: Boolean,
   layout: 'grid' | 'row',
 }>();
@@ -153,7 +153,7 @@ const toggleView = () => {
               v-model:page="currentPage"
             >
               <template #item="{ data }">
-                <div class="grid grid-cols-4 gap-4">
+                <div class="grid lg:grid-cols-4 grid-cols-1 justify-items-center lg:justify-items-start gap-4">
                   <ProductCard
                     v-for="product in data"
                     :key="product.id"
@@ -197,7 +197,7 @@ const toggleView = () => {
             </Carousel>
           </div>
           <div v-else>
-            <div class="grid grid-rows-1 lg:grid-cols-4 grid-cols-1 gap-2">
+            <div class="grid grid-rows-1 lg:grid-cols-4 grid-cols-1 justify-items-center gap-2">
               <ProductCard
                 v-for="product in paginatedCards"
                 :key="product.id"

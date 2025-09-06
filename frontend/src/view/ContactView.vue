@@ -9,25 +9,25 @@ const contact = reactive({
 </script>
 
 <template>
-  <div class="pt-20 pb-35">
-    <div class="max-w-7xl mx-auto">
+  <div class="pt-10 pb-35 px-3.5 lg:pt-20 lg:px-0">
+    <div class="md:max-w-3xl lg:max-w-7xl mx-auto">
       <div>
         <div class="flex items-center">
           <div class="inline-block">
-            <a href="#" class="font-poppins text-gray-600 leading-[21px]">Home</a>
+            <RouterLink to="/" class="font-poppins text-gray-600 leading-[21px]">Home</RouterLink>
           </div>
           <div class="inline-block mx-1.5">
             <p class="text-gray-600">/</p>
           </div>
           <div class="inline-block">
-            <a href="#" class="font-poppins leading-[21px]">Contact</a>
+            <RouterLink to="/contact" class="font-poppins leading-[21px]">Contact</RouterLink>
           </div>
         </div>
       </div>
 
       <div class="mt-20">
-        <div class="flex justify-between">
-          <div class="mr-7.5 pt-10 px-8 pb-12.5">
+        <div class="flex flex-col md:flex-row md:gap-5 justify-between">
+          <div class="pb-12.5 lg:mr-7.5 lg:pt-10 lg:px-8 md:rounded-sm lg:shadow-xs lg:shadow-gray-300">
             <div class="flex items-center">
               <div class="w-10 h-10 rounded-full flex justify-center items-center bg-red-500">
                 <span class="pi pi-phone text-white text-xl"></span>
@@ -66,15 +66,15 @@ const contact = reactive({
               </div>
             </div>
           </div>
-          <div class="py-10 px-8 grow-1">
+          <div class="lg:py-10 lg:px-8 lg:grow-1 md:rounded-sm lg:shadow-xs lg:shadow-gray-300">
             <Form class="flex flex-col h-full">
-              <div class="flex gap-3.5">
-                <InputText placeholder="Your Name*" class="flex-auto font-poppins leading-6 !bg-gray-100 !border-none" required />
-                <InputMask placeholder="Your Email*" class="flex-auto font-poppins leading-6 !bg-gray-100 !border-none" />
-                <InputMask placeholder="Your Phone*" mask="+380 (99) 999 99 99" class="flex-auto font-poppins leading-6 !bg-gray-100 !border-none" />
+              <div class="lg:flex lg:gap-3.5">
+                <InputText placeholder="Your Name*" class="!w-full lg:!w-auto lg:flex-auto font-poppins leading-6 !bg-gray-100 !border-none" required />
+                <InputMask placeholder="Your Email*" class="!w-full lg:!w-auto !mt-5 lg:!mt-0 flex-auto font-poppins leading-6 !bg-gray-100 !border-none" />
+                <InputMask placeholder="Your Phone*" mask="+380 (99) 999 99 99" class="!w-full lg:!w-auto !mt-5 lg:!mt-0 flex-auto font-poppins leading-6 !bg-gray-100 !border-none" />
               </div>
-              <div class="mt-8 h-full">
-                <Textarea placeholder="Your Message" class="w-full h-full resize-none font-poppins leading-6 !bg-gray-100 !border-none" cols="30" />
+              <div class="mt-5 lg:mt-8 h-full">
+                <Textarea placeholder="Your Message" class="w-full h-full resize-none font-poppins leading-6 !bg-gray-100 !border-none" />
               </div>
               <div class="mt-8 flex justify-end">
                 <Button label="Send Message" :pt="{ root: '!font-poppins !font-medium leading-6 !bg-red-500 !border-none !py-4 !px-12'}" />

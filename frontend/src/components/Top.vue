@@ -1,17 +1,7 @@
 <script setup lang="ts">
 import { SplitButton } from 'primevue';
-import { ref } from 'vue';
+import { languageItems } from '@/items';
 
-const languages = ref([
-  {
-    label: 'Українська',
-    class: 'p-1',
-  },
-  {
-    label: 'Polska',
-    class: 'p-1', 
-  },
-])
 </script>
 
 <template>
@@ -24,18 +14,18 @@ const languages = ref([
             <a href="#" class="font-semibold underline ml-2">ShopNow</a>
           </p>
         </div>
-        <SplitButton unstyled class="hidden md:flex lg:flex" :model="languages" label="English" :pt="{
+        <SplitButton class="hidden " :model="languageItems" label="English" :pt="{
             root: {
-              class: 'font-poppins text-white'
+              class: '!font-poppins !font-medium !hidden md:!flex'
             },
             pcButton: {
-              root: 'font-normal text-sm leading-[21px]'
+              root: '!font-normal !text-sm !leading-[21px] !bg-black !border-none !p-0'
             },
             pcDropdown: {
-              root: 'pl-2 flex justify-center items-center'
+              root: '!bg-black !border-none',
             },
             pcMenu: {
-              root: 'bg-black text-white text-sm font-normal p-2' 
+              root: '!font-poppins !text-sm !font-normal !bg-black !border-none !mt-1' 
             },
           }" 
         />

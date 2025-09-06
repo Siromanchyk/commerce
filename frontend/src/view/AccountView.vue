@@ -1,68 +1,41 @@
 <script setup lang="ts">
-import { Menu, InputText, Button } from 'primevue';
+import { Menu, InputText, Button, Breadcrumb } from 'primevue';
+import { accountSettingItems } from '@/items';
 import { ref } from 'vue';
 
 const items = ref([
-  {
-    label: 'Manage My Account',
-    items: [
-      {
-        label: 'My profile',
-      },
-      {
-        label: 'Address Book',
-      },
-      {
-        label: 'My Payment Options'
-      },
-    ]
-  },
-  {
-    label: 'My Orders',
-    items: [
-      {
-        label: 'My Returns',
-      },
-      {
-        label: 'My Cancellations',
-      }
-    ]
-  },
-  {
-    label: 'My Wishlist',
-    items: [],
-  }
+  { label: 'Home', route: '/' },
+  { label: 'My Account', route: '/account' },
 ])
 </script>
 
 <template>
   <div class="pt-20 pb-44">
-    <div class="lg:max-w-7xl mx-auto">
-      <div class="flex justify-between">
-        <div>
-          <div class="inline-block">
-            <a href="#" class="font-poppins text-gray-600 leading-[21px]">Home</a>
-          </div>
-          <div class="inline-block mx-1.5">
-            <p class="text-gray-600">/</p>
-          </div>
-          <div class="inline-block">
-            <a href="#" class="font-poppins leading-[21px]">My Account</a>
-          </div>
-        </div>
+    <div class="md:max-w-3xl lg:max-w-7xl mx-auto px-3.5 md:px-0">
+      <div class="flex justify-between items-start">
+        <Breadcrumb :model="items" :pt="{ root: '!p-0' }">
+          <template #item="{ item }">
+            <RouterLink :to="item.route" v-slot="{ href, navigate }">
+              <a :href="href" class="font-poppins text-gray-600 leading-[21px]" @click="navigate">
+                {{ item.label }}
+              </a>
+            </RouterLink>
+          </template>
+          <template #separator>/</template>
+        </Breadcrumb>
         <div>
           <p class="font-poppins text-sm leading-[21px]">Welcome! <span class="text-red-500">Md Rimel</span></p>
         </div>
       </div>
 
       <div class="mt-20">
-        <div class="flex justify-between">
-          <Menu :model="items" :pt="{ root: 'font-poppins !border-none', item: 'ml-7' }" />
-          <div class="pt-10 px-20 grow-1">
+        <div class="flex justify-between md:flex-row flex-col">
+          <Menu :model="accountSettingItems" :pt="{ root: 'font-poppins !border-none', item: 'ml-7' }" />
+          <div class="mt-5 md:mt-0 md:pt-10 md:px-20 grow-1">
             <h2 class="font-poppins text-xl leading-[28px] text-red-500 font-medium">Edit Your Profile</h2>
             <div class="mt-4">
-              <div class="flex justify-between">
-                <div class="flex flex-col grow-1 mr-12.5">
+              <div class="flex flex-col md:flex-row md:justify-between">
+                <div class="flex flex-col grow-1 md:mr-12.5 mb-3.5 md:mb-0">
                   <label for="firstName" class="font-poppins leading-[24px] mb-2">First Name</label>
                   <InputText id="firstName" />
                 </div>
@@ -71,8 +44,8 @@ const items = ref([
                   <InputText id="lastName" />
                 </div>
               </div>
-              <div class="flex justify-between mt-6">
-                <div class="flex flex-col grow-1 mr-12.5">
+              <div class="flex flex-col md:flex-row md:justify-between mt-3 md:mt-6">
+                <div class="flex flex-col grow-1 md:mr-12.5 mb-3.5 md:md-0">
                   <label for="email" class="font-poppins leading-[24px] mb-2">Email</label>
                   <InputText id="email" />
                 </div>

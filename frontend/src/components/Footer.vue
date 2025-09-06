@@ -3,9 +3,9 @@
 </script>
 
 <template>
-  <div class="bg-black lg:pt-20 pt-10">
+  <div class="bg-black pt-10 lg:pt-20">
     <div class="border-b-2 border-b-white/30 pb-15">
-      <div class="max-w-sm md:max-w-3xl lg:max-w-7xl mx-auto">
+      <div class="md:max-w-3xl lg:max-w-7xl mx-auto px-3.5 md:px-0">
         <div class="hidden md:flex lg:hidden justify-between border-b-2 border-b-white opacity-[0.4] mb-5 pb-4">
           <div class="grow-1">
             <div>
